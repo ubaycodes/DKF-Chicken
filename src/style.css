@@ -1,0 +1,263 @@
+:root {
+  --primary-color: #4361ee;
+  --secondary-color: #3f37c9;
+  --text-color: #2b2d42;
+  --light-color: #f8f9fa;
+  --hover-color: #4895ef;
+  --transition: all 0.3s ease;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+/* header styling */
+.header {
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: sticky;
+  top: 0;
+  transition: var(--transition);
+}
+.navbar.scrolled {
+  padding: 10px 0;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.dark-mode {
+  background: #121212;
+  color: #ffffff;
+}
+
+.dark-mode .navbar {
+  background: #1e1e1e;
+}
+.dark-mode .navbar {
+  --text-color: #e0f7fa; /* Warna dasar neon */
+  --neon-glow: 0 0 10px #00e5ff, 0 0 20px #00b8d4, 0 0 30px #00838f;
+}
+
+.nav-link,
+.logo,
+.cta-button {
+  color: var(--text-color);
+  text-shadow: var(--neon-glow);
+  transition: all 0.4s ease;
+}
+
+/* Efek hover tambahan */
+.dark-mode .nav-link:hover {
+  text-shadow: 0 0 15px #00e5ff, 0 0 30px #00b8d4, 0 0 45px #00838f;
+  transform: translateY(-2px);
+}
+
+/* Animasi pulsasi (opsional) */
+@keyframes neon-pulse {
+  0%,
+  100% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.dark-mode .logo {
+  animation: neon-pulse 3s infinite alternate;
+}
+.dark-mode .cta-button {
+  border: 1px solid #00e5ff;
+  box-shadow: inset 0 0 10px #00e5ff, 0 0 20px #00b8d4;
+}
+.dark-mode .nav-link::after {
+  background: linear-gradient(90deg, #00e5ff, #00ffff);
+  height: 2px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.logo img {
+  height: 60px;
+  width: auto;
+  transition: var(--transition);
+}
+.logo img:hover {
+  opacity: 0.9;
+}
+.brand-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 0;
+}
+.logo:hover .logo-img {
+  transform: rotate(5deg) scale(1.05);
+  transition: transform 0.3s ease;
+}
+.logo:hover .brand-name {
+  color: var(--secondary-color);
+  text-shadow: 0 0 5px rgba(67, 97, 238, 0.2);
+}
+/* navigation menu */
+.nav-menu {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin-left: 20rem;
+  gap: 2rem;
+}
+.nav-item {
+  position: relative;
+}
+.nav-link {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: var(--transition);
+  padding: 0.5rem;
+}
+.nav-link:hover {
+  color: var(--primary-color);
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  transition: var(--transition);
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+/* CTA button */
+.cta-button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 6px rgba(67, 97, 238, 0.2);
+}
+.cta-button:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(67, 97, 238, 0.2);
+}
+/* mobile menu hamburger icon */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 10px;
+  z-index: 1000;
+}
+.hamburger-box {
+  width: 30px;
+  height: 24px;
+  display: inline-block;
+  position: relative;
+}
+.hamburger-inner {
+  width: 100%;
+  height: 3px;
+  background-color: var(--primary-color);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.2s ease;
+}
+.hamburger-inner::before,
+.hamburger-inner::after {
+  content: "";
+  width: 100%;
+  height: 3px;
+  background-color: var(--primary-color);
+  position: absolute;
+  left: 0;
+  transition: transform 0.3s ease;
+}
+.hamburger-inner::before {
+  top: -8px;
+}
+.hamburger-inner::after {
+  bottom: -8px;
+}
+/* animasi saat aktif */
+.hamburger.active .hamburger-inner {
+  background: transparent;
+}
+.hamburger.active .hamburger-inner::before {
+  transform: translateY(8px) rotate(45deg);
+}
+.hamburger.active .hamburger-inner::after {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* responsive design  */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    height: 100vh;
+    background: white;
+    flex-direction: column;
+    padding: 80px 20px;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    transition: right 0.4s ease;
+    z-index: 999;
+  }
+  .nav-menu.active {
+    right: 0;
+  }
+  .cta-button {
+    padding: 8px 15px;
+    font-size: 0.8rem;
+    margin-left: 0;
+  }
+  .nav-item {
+    margin: 15px 0;
+  }
+  .nav-link {
+    font-size: 1.2rem;
+    padding: 10px 0;
+  }
+  .navbar {
+    padding: 1rem;
+  }
+  @media (max-width: 768px) {
+    .dark-mode .nav-menu {
+      background: rgba(0, 30, 40, 0.95); /* Dark bg dengan transparansi */
+      backdrop-filter: blur(5px);
+    }
+  }
+}
