@@ -140,7 +140,7 @@ body {
   border-radius: 12px;
 }
 .bg-1 {
-  background-image: url("../public/background-1.png");
+  background-image: url(/public/background-1.png);
   background-repeat: no-repeat;
   background-position: left bottom;
   position: absolute;
@@ -151,7 +151,7 @@ body {
   background-size: auto 40%;
 }
 .bg-2 {
-  background-image: url("../public/background-2.png");
+  background-image: url(/public/background-2.png);
   background-repeat: no-repeat;
   background-position: right top;
   position: absolute;
@@ -161,6 +161,7 @@ body {
   height: 100vh;
   background-size: auto 35%;
 }
+
 .banner-content {
   max-width: 800px;
   padding: 40px;
@@ -453,16 +454,20 @@ body {
     color: black;
     font-size: 1.8rem;
     z-index: 1000;
-    margin-right: 10px;
+    margin-right: 25px;
   }
 
   /* Ketika menu aktif */
   .navbar-toggle.active {
     position: fixed;
-    right: 1rem;
+    right: 2rem;
   }
 
   /* section about */
+  .blend-banner {
+    width: 95%;
+    margin-left: -2px;
+  }
   .bg-1 {
     background-size: auto 25%;
   }
@@ -470,8 +475,9 @@ body {
     background-size: auto 20%;
   }
   .partner {
-    padding: 20px 25px;
-    gap: 8px;
+    padding: 25px 15px;
+    gap: 4px;
+    margin-left: -10px;
   }
   .btn-partner img {
     height: 20px;
@@ -482,8 +488,17 @@ body {
     flex-direction: column;
     gap: 30px;
   }
+  .service-description {
+    margin-left: -15px;
+  }
+  .work-process {
+    font-size: 1.4rem;
+  }
   .service-cards {
     flex-direction: column;
+    padding: 15px 0px;
+    margin-left: -15px;
+    margin-right: 4px;
   }
   .card-icon {
     width: 45px;
@@ -492,9 +507,17 @@ body {
   /* section portofolio */
   .portfolio-layout {
     flex-direction: column;
+    margin-left: -20px;
+    margin-top: -10px;
+    margin-right: 2px;
+  }
+  .main-image {
+    width: 100%;
+    padding: 0px 20px;
   }
   .right-content {
-    padding: 0 5px;
+    padding: 0 15px;
+    margin-top: 0.2rem;
   }
   .description {
     margin-bottom: 0.5rem;
