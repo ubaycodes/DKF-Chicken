@@ -140,7 +140,7 @@ body {
   border-radius: 12px;
 }
 .bg-1 {
-  background-image: url(/public/background-1.png);
+  background-image: url(../public/background-1.png);
   background-repeat: no-repeat;
   background-position: left bottom;
   position: absolute;
@@ -151,7 +151,7 @@ body {
   background-size: auto 40%;
 }
 .bg-2 {
-  background-image: url(/public/background-2.png);
+  background-image: url(../public/background-2.png);
   background-repeat: no-repeat;
   background-position: right top;
   position: absolute;
